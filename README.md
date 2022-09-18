@@ -1,3 +1,3 @@
 # TrashTalkBot
 
-Ceci est un bot qui trash talk
+Ceci est un bot qui trash talk.

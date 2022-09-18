@@ -1,0 +1,344 @@
+﻿<Window x:Class="TrashTalkBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TrashTalkBot"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="#FF262626" Foreground="#FFE4E1DC">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="Purlple0" Color="#EDE7F6" />
+        <SolidColorBrush x:Key="Purlple1" Color="#D1C4E9" />
+        <SolidColorBrush x:Key="Purlple2" Color="#B39DDB" />
+        <SolidColorBrush x:Key="Purlple3" Color="#9575CD" />
+        <SolidColorBrush x:Key="Purlple4" Color="#7E57C2" />
+        <SolidColorBrush x:Key="Purlple5" Color="#673AB7" />
+        <SolidColorBrush x:Key="Purlple6" Color="#5E35B1" />
+        <SolidColorBrush x:Key="Purlple7" Color="#512DA8" />
+        <SolidColorBrush x:Key="Purlple8" Color="#4527A0" />
+        <SolidColorBrush x:Key="Purlple9" Color="#311B92" />
+
+        <SolidColorBrush x:Key="GrayPrimary" Color="#FF121212" />
+        <SolidColorBrush x:Key="GraySecondary" Color="#FF262626" />
+        <SolidColorBrush x:Key="WhitePrimary" Color="#FFE4E1DC" />
+        <SolidColorBrush x:Key="WhiteSecondary" Color="#FFD4D1CC" />
+        <SolidColorBrush x:Key="WhiteThird" Color="#FFA4A19C" />
+        <LinearGradientBrush x:Key="CheckedBlue" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#4527A0" Offset="0" />
+            <GradientStop Color="#5E35B1" Offset="0.2" />
+            <GradientStop Color="#8f2da8" Offset="0.8" />
+            <GradientStop Color="#bb6cc7" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="CheckedOrange" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#FFCA6A13" Offset="0" />
+            <GradientStop Color="#FFF67D0C" Offset="0.1" />
+            <GradientStop Color="#FFFE7F0C" Offset="0.2" />
+            <GradientStop Color="#FFFA8E12" Offset="0.5" />
+            <GradientStop Color="#FFFF981D" Offset="0.7" />
+            <GradientStop Color="#FFFCBC5A" Offset="1" />
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="CheckedGreen" StartPoint="0,0" EndPoint="0,1">
+            <GradientStop Color="#7CB342" Offset="0" />
+            <GradientStop Color="#8BC34A" Offset="0.1" />
+            <GradientStop Color="#9CCC65" Offset="0.2" />
+            <GradientStop Color="#B2FF59" Offset="0.5" />
+            <GradientStop Color="#76FF03" Offset="0.7" />
+            <GradientStop Color="#64DD17" Offset="1" />
+        </LinearGradientBrush>
+        <SolidColorBrush x:Key="CheckedOrangeBorder" Color="#FF8E4A1B" />
+        <SolidColorBrush x:Key="CheckedBlueBorder" Color="#FF1A1A40" />
+        <Style x:Key="PurpleSwitchStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnChecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="53" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="OnUnchecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <DockPanel x:Name="dockPanel">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" RecognizesAccessKey="True" VerticalAlignment="Center" />
+                            <Grid>
+                                <Border x:Name="BackgroundBorder" BorderBrush="#FF939393" BorderThickness="1" CornerRadius="3" Height="27" Width="94">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#FFB5B5B5" Offset="0" />
+                                            <GradientStop Color="#FFDEDEDE" Offset="0.1" />
+                                            <GradientStop Color="#FFEEEEEE" Offset="0.5" />
+                                            <GradientStop Color="#FFFAFAFA" Offset="0.5" />
+                                            <GradientStop Color="#FFFEFEFE" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <Ellipse x:Name="Off" Width="14" Height="14" Stroke="#FF7A7A7A" StrokeThickness="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <Line x:Name="On" X1="0" Y1="0" X2="0" Y2="14" Stroke="#FF7A7A7A" StrokeThickness="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Grid>
+                                </Border>
+                                <Border BorderBrush="#FF939393" HorizontalAlignment="Left" x:Name="slider" Width="41" Height="27" BorderThickness="1" CornerRadius="3" RenderTransformOrigin="0.5,0.5" Margin="0">
+                                    <Border.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            <SkewTransform AngleX="0" AngleY="0" />
+                                            <RotateTransform Angle="0" />
+                                            <TranslateTransform X="0" Y="0" />
+                                        </TransformGroup>
+                                    </Border.RenderTransform>
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="#FFF0F0F0" Offset="0" />
+                                            <GradientStop Color="#FFCDCDCD" Offset="0.1" />
+                                            <GradientStop Color="#FFFBFBFB" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </DockPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnUnchecking}" x:Name="OnUnchecking_BeginStoryboard" />
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnChecking}" x:Name="OnChecking_BeginStoryboard" />
+                                </Trigger.EnterActions>
+                                <Setter TargetName="On" Property="Stroke" Value="White" />
+                                <Setter TargetName="Off" Property="Stroke" Value="White" />
+                                <!-- Change Orange or Blue color here -->
+                                <Setter TargetName="BackgroundBorder" Property="Background" Value="{StaticResource CheckedBlue}" />
+                                <Setter TargetName="BackgroundBorder" Property="BorderBrush" Value="{StaticResource CheckedBlueBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <!-- ToDo: Add Style for Isenabled == False -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!-- Slider Button - Green -->
+        <Style x:Key="OnOffSwitchStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" />
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <ControlTemplate.Resources>
+                            <Storyboard x:Key="OnChecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="36" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                            <Storyboard x:Key="OnUnchecking">
+                                <DoubleAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="slider" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
+                                    <SplineDoubleKeyFrame KeyTime="00:00:00.1000000" Value="0" />
+                                </DoubleAnimationUsingKeyFrames>
+                            </Storyboard>
+                        </ControlTemplate.Resources>
+                        <DockPanel x:Name="dockPanel">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Content="{TemplateBinding Content}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" RecognizesAccessKey="True" VerticalAlignment="Center" />
+                            <Grid>
+                                <Border x:Name="BackgroundBorder" BorderBrush="#FF939393" BorderThickness="1" CornerRadius="10" Height="27" Width="71">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                                            <GradientStop Color="#FFB5B5B5" Offset="0" />
+                                            <GradientStop Color="#FFDEDEDE" Offset="0.1" />
+                                            <GradientStop Color="#FFEEEEEE" Offset="0.5" />
+                                            <GradientStop Color="#FFFAFAFA" Offset="0.5" />
+                                            <GradientStop Color="#FFFEFEFE" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                        <TextBlock x:Name="Off" Text="Off" Width="25" FontWeight="SemiBold" Height="14" Foreground="#FF121212" Background="#00000000" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                        <TextBlock x:Name="On" Text="On" Grid.Column="0" FontWeight="SemiBold" Foreground="#FF121212" Background="#00000000" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </Grid>
+                                </Border>
+                                <Border BorderBrush="#FF939393" HorizontalAlignment="Left" x:Name="slider" Width="35" Height="27" BorderThickness="1" CornerRadius="10" RenderTransformOrigin="0.5,0.5" Margin="0">
+                                    <Border.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                                            <SkewTransform AngleX="0" AngleY="0" />
+                                            <RotateTransform Angle="0" />
+                                            <TranslateTransform X="0" Y="0" />
+                                        </TransformGroup>
+                                    </Border.RenderTransform>
+                                    <Border.Background>
+                                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                                            <GradientStop Color="#FFF0F0F0" Offset="0" />
+                                            <GradientStop Color="#FFCDCDCD" Offset="0.1" />
+                                            <GradientStop Color="#FFFBFBFB" Offset="1" />
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                </Border>
+                            </Grid>
+                        </DockPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnUnchecking}" x:Name="OnUnchecking_BeginStoryboard" />
+                                </Trigger.ExitActions>
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard Storyboard="{StaticResource OnChecking}" x:Name="OnChecking_BeginStoryboard" />
+                                </Trigger.EnterActions>
+                                <!-- Change Orange or Blue color here -->
+                                <Setter TargetName="BackgroundBorder" Property="Background" Value="{StaticResource CheckedGreen}" />
+                                <Setter TargetName="BackgroundBorder" Property="BorderBrush" Value="{StaticResource CheckedBlueBorder}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <!-- ToDo: Add Style for Isenabled == False -->
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="36" Text="TrashTalk Bot" Grid.ColumnSpan="3" Margin="0,10,10,10" VerticalAlignment="Top"/>
+        <CheckBox Name="OnOff" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" Style="{DynamicResource OnOffSwitchStyle}" VerticalAlignment="Top" Grid.ColumnSpan="1" Margin="20,20,20,20" IsChecked="True" Checked="OnOff_Checked" Unchecked="OnOff_Unchecked" Foreground="{DynamicResource WhitePrimary}"/>
+
+        <!-- Grid TrashTalk Harshness -->
+        <Grid Grid.Column="1" Grid.Row="2" Margin="20,0,20,0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" Text="TrashTalk Harshness" FontSize="24" Grid.ColumnSpan="3" TextAlignment="Center"/>
+            <Button Name="ButtonMinus" Grid.Column="0" Grid.Row="1" Height="40" Width="40" Content="-" FontSize="22" FontWeight="Bold" Margin="10,10,10,10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Background="{DynamicResource CheckedBlue}" Foreground="White" Click="ButtonMinus_Click" >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock Name="LevelIndicator" Grid.Column="1" Grid.Row="1" FontWeight="SemiBold" Text="Random" FontSize="24" Grid.ColumnSpan="1"  VerticalAlignment="Center" Width="120" HorizontalAlignment="Center" TextAlignment="Center"/>
+            <Button Name="ButtonPlus" Grid.Column="2" Grid.Row="1" Height="40" Width="40" Content="+" FontSize="22" FontWeight="Bold" Margin="10,10,10,10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Background="{DynamicResource CheckedBlue}" Foreground="White" Click="ButtonPlus_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <CheckBox Name="CheckRandom" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Style="{DynamicResource PurpleSwitchStyle}" VerticalAlignment="Center" Grid.ColumnSpan="3" Margin="0,5,0,5" IsChecked="True" Checked="SelectRandom_Checked" Unchecked="SelectRandom_Unchecked"/>
+            <TextBlock Grid.Column="0" Grid.Row="3" FontWeight="Light" Text="Random value" FontSize="16" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+
+        <!-- Grid TrashTalk Command Selector -->
+        <Grid Grid.Column="3" Grid.Row="1" Margin="20,00,20,0" Grid.RowSpan="4" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" Text="TrashTalk Harshness" FontSize="24" Grid.ColumnSpan="3" TextAlignment="Center"/>
+
+            <TextBlock Grid.Column="0" Grid.Row="1"  Width="100" Text="Hello"           FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="2"  Width="100" Text="Hf"              FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="3"  Width="100" Text="ProTip"          FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="4"  Width="100" Text="Nice shot"       FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="5"  Width="100" Text="What a save"     FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="6"  Width="100" Text="Miss"            FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="7"  Width="100" Text="Try Something"   FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="8"  Width="100" Text="Offense"         FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="9"  Width="100" Text="FF"              FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="10" Width="100" Text="GG"              FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="11" Width="100" Text="EZ"              FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="12" Width="100" Text="Other"           FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBlock Grid.Column="0" Grid.Row="13" Width="100" Text="Open Chat" FontWeight="Bold"           FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhiteSecondary}"/>
+            <TextBox Name="KeyHello"        Grid.Column="1"  Grid.Row="1"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyHf"           Grid.Column="1"  Grid.Row="2"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyProTip"       Grid.Column="1"  Grid.Row="3"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyNiceShot"     Grid.Column="1"  Grid.Row="4"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyWhatASave"    Grid.Column="1"  Grid.Row="5"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyMiss"         Grid.Column="1"  Grid.Row="6"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyTrySmth"      Grid.Column="1"  Grid.Row="7"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyOffense"      Grid.Column="1"  Grid.Row="8"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyFF"           Grid.Column="1"  Grid.Row="9"  Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyGG"           Grid.Column="1"  Grid.Row="10" Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyEZ"           Grid.Column="1"  Grid.Row="11" Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyOther"        Grid.Column="1"  Grid.Row="12" Width="80" Text=" " FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource GrayPrimary}" Foreground="{DynamicResource WhitePrimary}"/>
+            <TextBox Name="KeyOpenChat"     Grid.Column="1"  Grid.Row="13" Width="80" Text="T" FontSize="16" TextAlignment="Center" KeyUp="Key_OnKeyUp" Background="{DynamicResource WhiteThird}" Foreground="{DynamicResource GrayPrimary}"/>
+            <Button Name="ButtonSave" Grid.Column="1" Grid.Row="14" Height="40" Width="80" Content="Save" FontSize="22" FontWeight="Bold" Margin="10,10,10,10" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" Background="{DynamicResource CheckedBlue}" Foreground="White" Click="ButtonSave_Click">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="20"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <TextBlock Name="Information" Grid.Column="0" Grid.Row="14" Width="100" Text="" FontWeight="ExtraLight" VerticalAlignment="Center" HorizontalAlignment="Right" FontSize="14" TextAlignment="Left" Foreground="{DynamicResource WhiteThird}" />
+
+
+        </Grid>
+
+
+    </Grid>
+</Window>

@@ -1,17 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.Security;
-using System.Security.Permissions;
 using System.Threading;
 using System.Windows.Input;
 using static TrashTalkBot.KeyMessage;
 
 namespace TrashTalkBot
 {
-
     /// <summary>
     /// Native methods
     /// </summary>

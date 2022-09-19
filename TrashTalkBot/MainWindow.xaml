@@ -299,7 +299,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" Text="TrashTalk Harshness" FontSize="24" Grid.ColumnSpan="3" TextAlignment="Center"/>
+            <TextBlock Grid.Column="0" Grid.Row="0" FontWeight="SemiBold" Text="Key Configuration" FontSize="24" Grid.ColumnSpan="3" TextAlignment="Center"/>
 
             <TextBlock Grid.Column="0" Grid.Row="1"  Width="100" Text="Hello"           FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>
             <TextBlock Grid.Column="0" Grid.Row="2"  Width="100" Text="Hf"              FontSize="16" TextAlignment="Left" Foreground="{DynamicResource WhitePrimary}"/>

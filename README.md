@@ -15,7 +15,7 @@ Use this at your own risk.
 
 ## Configure your own messages
 
-You can configure your own trashtalk messages in the TrashTalkDatabase.csv file.
+You can configure your own trashtalk messages in the ```TrashTalkDatabase.csv``` file.
 Save the file in its original folder.
 
 ![CSVFILE](https://github.com/Amnetik/TrashTalkBot/blob/master/Capture_folder.PNG)

@@ -91,7 +91,7 @@ namespace TrashTalkBot
         /// </summary>
         public static void InitDataset()
         {
-            RawText = File.ReadAllText("TrashTalkDatabase.csv");
+            RawText = File.ReadAllText("..\\..\\..\\..\\TrashTalkDatabase.csv");
             ParseCSV();
         }
         #endregion
